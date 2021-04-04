@@ -7,33 +7,59 @@ var characterSet = "";
 var randomPassword = "";
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-var generatePassword = ({
+function generatePassword() {
   //Choose Password Length between 8-128 characters
-  promptPlength = function () {
-    parseInt(prompt("Choose password length between 8-128 characters"));
-    // First if statement for user validation 
-    if (!enter) {
-      alert("This needs a value");
-    } else if (enter < 8 || enter > 128) {
-      // Validates user input
-      // Start user input prompts
-      enter = parseInt((prompt("You must choose between 8 and 128")));
-    } else {
-      // Continues once user input is validated
-      PromptLowercase = confirm("Will this contain Lowercase letters?");
-      promptUppercase = confirm("Will this contain Uppercase letters?");
-      promptNumeric = confirm("Will this contain numbers?");
-      promptSpecial = confirm("Will this contain special characters?");
-      //input validated to include at least one of the criteria
-      if (promptLowercase && promptUppercase && promptNumeric && promptSpecial === false) {
-        alert("You must choose at least one password criteria");
-        promptCriteria();
-      }
-      //only Lowerletters 
-      if (promptLowercase === true) {
-        randomPassword = characterSet + lower;
-        console.log;
-      }
+  var promptPlength = parseInt(prompt("Choose password length between 8-128 characters"));
+  // Continues once user input is validated
+  // Start user input prompts
+  promptLowercase = confirm("Will this contain Lowercase letters?");
+  promptUppercase = confirm("Will this contain Uppercase letters?");
+  promptNumeric = confirm("Will this contain numbers?");
+  promptSpecial = confirm("Will this contain special characters?");
+  //input validated to include at least one of the criteria
+  // if (!enter) {
+  //   alert("This needs a value");
+  //   generatePassword();
+  // }
+
+  // else if (promptPlength < 8 || promptPlength > 128) {
+  //   enter = parseInt((prompt("You must choose between 8 and 128")));
+  //   generatePassword();
+  // }
+
+  // else {
+  if (promptLowercase && promptUppercase && promptNumeric && promptSpecial === false) {
+    alert("You must choose at least one password criteria");
+    generatePassword();
+    // }
+  }
+  passwordContent();
+
+  for (var [i] = 0; i < characterSet.length; i++) {
+    var value = Math.floor(Math.random() * characterSet.length);
+    value = randomPassword;
+  }
+}
+
+function passwordContent() {
+  if (promptPlength => 8 && promptPlength <= 128) {
+    if (promptLowercase === true) {
+      randomPassword = characterSet.concat.lower;
+      console.log;
+    }
+    if (promptUppercase === true) {
+      randomPassword = characterSet.concat.upper;
+      console.log;
+
+    }
+    if (promptNumeric === true) {
+      randomPassword = characterSet.concat.numbers;
+      console.log;
+
+    }
+    if (promptSpecial === true) {
+      randomPassword = characterSet.concat.special;
+      console.log;
     }
   }
 }
@@ -46,4 +72,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-generatePassword();
+    // First if statement for user validation
+
