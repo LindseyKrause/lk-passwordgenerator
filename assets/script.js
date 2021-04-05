@@ -15,11 +15,11 @@ var promptUppercase = confirm("Will this contain Uppercase letters?");
 var promptNumeric = confirm("Will this contain numbers?");
 var promptSpecial = confirm("Will this contain special characters?");
 console.log(promptLowercase);
-//input validated to include at least one of the criteria
 if (!generateBtn) {
   alert("This needs a value");
   generatePassword();
 }
+//input validated to include at least one of the criteria
 if (promptLowercase && promptUppercase && promptNumeric && promptSpecial === false) {
   alert("You must choose at least one password criteria");
   generatePassword();
@@ -36,23 +36,23 @@ function calculatePassword() {
       console.log(randomPassword);
     }
     if (promptUppercase === true) {
-      randomPassword = [characterSet.concat((upper),(lower))];
+      randomPassword = [characterSet.concat((upper), (lower))];
       console.log(randomPassword);
 
     }
     if (promptNumeric === true) {
-      randomPassword = [characterSet.concat((numbers),(upper),(lower))];
+      randomPassword = [characterSet.concat((numbers), (upper), (lower))];
       console.log(randomPassword);
 
     }
     if (promptSpecial === true) {
-      randomPassword = [characterSet.concat((special),(numbers),(upper),(lower))];
+      randomPassword = [characterSet.concat((special), (numbers), (upper), (lower))];
       console.log(randomPassword);
     }
     console.log(characterSet);
     console.log(randomPassword.length);
     console.log(typeof characterSet);
-
+// This is where it breaks, for loop is not referring to the arrays 
     for (var i = 0; i < promptPlength.length; i++) {
       console.log("for loop");
       var value = Math.floor(Math.random() * promptPlength.length(""));
@@ -63,16 +63,14 @@ function calculatePassword() {
 function generatePassword() {
   return randomPassword;
 }
-  console.log("generatePassword");
-  // Write password to the #password input
-  function writePassword() {
-    console.log("starting write password function");
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-  }
-
-  // Add event listener to generate button
-  generateBtn.addEventListener("click", writePassword());
-    // First if statement for user validation
+console.log("generatePassword");
+// Write password to the #password input
+function writePassword() {
+  console.log("starting write password function");
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword());
 
