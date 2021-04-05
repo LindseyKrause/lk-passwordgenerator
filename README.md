@@ -15,6 +15,7 @@ A web app that generates a random password from criteria user specifies
 * Javascript
 
 ## Website
+https://lindseykrause.github.io/lk-passwordgenerator/
 
 ## Issues
 App will run with reduced functionality due to an issue with syntax in the "for" loop.
